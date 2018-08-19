@@ -12,23 +12,67 @@ let materialList = [
     "bone",
     "sand",
     "leaves",
-    "clay"
+    "clay",
+    "straw",
+    "plastic",
+    "roots",
+    "discareded clothing",
+    "broken dishes",
+    "steel"
 ]
 
 let locationList = [
     "on open ground",
     "amoung high mountains",
-    "on flat land"
+    "on flat land",
+    "in a desert",
+    "on a mountain",
+    "in a cave",
+    "on an island",
+    "in a green, mossy terrain",
+    "by the sea",
+    "in an overpopulated area",
+    "in heavy jungle undergrowth",
+    "among other houses",
+    "in a cold windy climate",
+    "in a hot climate",
+    "in michigan",
+    "in a place with both heavy rain and bright sun",
+    "by an abandoned lake",
+    "in a deserted church",
+    "in a metropolis",
+    "underwater",
+    "in dense woods",
+    "deserted factory",
+    "by a river"
 ]
 
 let lightingList = [
     "lit by natural light",
-    "using candles"
+    "using candles",
+    "using all available lighting",
+    "using electricity"
 ]
 
 let inhabitantsList = [
     "friends and enemies",
-    "fisherman and families"
+    "fisherman and families",
+    "vegitarians",
+    "children and old people",
+    "french and german speaking people",
+    "people who sleep almost all the time",
+    "various birds and fish",
+    "lovers",
+    "horses and birds",
+    "people who speak many languages and wear little or no clothing",
+    "people who love to read",
+    "little boys",
+    "people who enjoy eatting together",
+    "people who eat a great deal",
+    "people who sleep very little",
+    "collectors of all types",
+    "friends",
+    "very tall people"
 ]
 
 let count = 1;
@@ -46,6 +90,8 @@ function build(peram){
     paragraph.setAttribute("id", `${peram}${i}`);
     div.appendChild(paragraph);
 }
+//create an aside for the twitter button to live in
+
     let poemElement = document.getElementById("poem");
     poemElement.insertBefore(div, poemElement.childNodes[0]);
     let newParagraph = document.getElementById(pId);
@@ -59,6 +105,7 @@ function generate(){
     let lineTwo = `${locationList[Math.floor(Math.random()*locationList.length)]}`;
     let lineThree = `${lightingList[Math.floor(Math.random()*lightingList.length)]}`;
     let lineFour = `inhabitated by ${inhabitantsList[Math.floor(Math.random()*inhabitantsList.length)]}`;
+    
     
     let LineArray = [lineOne, lineTwo, lineThree, lineFour];
     display2(LineArray, 0);
