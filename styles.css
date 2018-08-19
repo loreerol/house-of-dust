@@ -26,6 +26,7 @@ main{
 }
 header{
     height: 10vh;
+    margin-bottom: 2vh;
 }
 
 article{
@@ -43,10 +44,10 @@ footer h2{
 }
 h1{
     margin: 5vh 0vh 3vh 0vh;
-    letter-spacing: .1em;
+    letter-spacing: .3em;
 }
 
-h1, h2{
+h1, h2, a{
     color: #d05017;
     font-family: 'Cutive Mono', monospace;
 }
@@ -69,6 +70,7 @@ h2{
     text-align: left;
     overflow: hidden;
     flex: none;
+    font-family: 'VT323', monospace;
 }
 
 #poem div p{

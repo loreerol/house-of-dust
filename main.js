@@ -6,12 +6,19 @@ let materialList = [
     "stone",
     "brick",
     "mud",
-    "grass"
+    "grass",
+    "glass",
+    "metal",
+    "bone",
+    "sand",
+    "leaves",
+    "clay"
 ]
 
 let locationList = [
     "on open ground",
-    "amoung high mountains"
+    "amoung high mountains",
+    "on flat land"
 ]
 
 let lightingList = [
