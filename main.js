@@ -54,36 +54,85 @@ function generate(){
     
     let LineArray = [lineOne, lineTwo, lineThree, lineFour];
     
-    display(LineArray);
-//    let i = 0;
-//    for(i = 0; i < 4; i++) {
-//    
-//    
-//    document.getElementById(`${count}${i}`).innerHTML = LineArray[i];
-//}
+    //let i=0;
+    //for (i = 0; i < 4; i++){
+        //console.log(LineArray[i]);
+      //  display(LineArray[i], i);
+    //}
+    display2(LineArray, 0);
+
 }
 
-function display(a){
-    let i = 0;
-    for(i = 0; i <4; i++){
-    let charArray = a[i].split("");
-        
-        
-    console.log(charArray);
-    if(charArray.length > 0){
-            document.getElementById(`${count}${i}`).innerHTML = charArray;
-        }else{
-            clearTimeout(timer);
-                return false;
+function display2(lineArray, i) {
+    let poemLines = lineArray[i];
+    let l = 0;
+    function func(){
+        //console.log(`Starting func...`);
+        if( l < poemLines.length) {
+            let txt = poemLines[l];
+            //console.log(`count = ${count}, l = ${l}`);
+            document.getElementById(`${count}${i}`).innerHTML += txt;
+            //console.log(`Wrote to DOM`);
+            l++;
+            setTimeout(func, 100);
         }
+        else if (i < 3) {
+            display2(lineArray, i+1);
+        }else{
+//            count+1;
+//            build(count);
+        }
+        //let txt = poemLines.substring(l, 1); 
+        
+            
     }
+    func();
+    
+    
+    
+}
+
+function display(poemLines, i){
+    console.log(`display is called with poemLines: ${poemLines}`);
+    let l = 0;
+    function func(){
+        //console.log(`Starting func...`);
+        if( l < poemLines.length) {
+            let txt = poemLines[l];
+            //console.log(`count = ${count}, l = ${l}`);
+            document.getElementById(`${count}${i}`).innerHTML += txt;
+            //console.log(`Wrote to DOM`);
+            l++;
+            setTimeout(func, 1000);
+        }
+        //let txt = poemLines.substring(l, 1); 
+        
+            
+    }
+    func();
+//    count = count + 1;
+//    build(count);
+}
+
+
+//function display(a){
+//    let i = 0;
+//    for(i = 0; i <4; i++){
+//    let charArray = a[i].split("");
+//        
+//    console.log(charArray);
+//    if(i <= charArray.length){
+//            let txt = charArray.substring(0, i);
+//            document.getElementById(`${count}${i}`).innerHTML = txt;
+//            setTimeout("display()", 100);
+//            i++;
+//        }else{
+//            clearTimeout(timer);
+//                return false;
+//        }
+//    }
 
   
-//    let charArray = a.split("");
-//if ()
-//    let timer = setTimeout('display', 70);
-}
-
 build(count);
 
 
