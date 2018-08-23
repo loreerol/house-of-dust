@@ -1,4 +1,4 @@
-"use strict";
+"use strict";"use strict";
 
 let materialList = [
     "dust",
@@ -16,14 +16,14 @@ let materialList = [
     "straw",
     "plastic",
     "roots",
-    "discareded clothing",
+    "discarded clothing",
     "broken dishes",
     "steel"
 ]
 
 let locationList = [
     "on open ground",
-    "amoung high mountains",
+    "among high mountains",
     "on flat land",
     "in a desert",
     "on a mountain",
@@ -36,7 +36,7 @@ let locationList = [
     "among other houses",
     "in a cold windy climate",
     "in a hot climate",
-    "in michigan",
+    "in Michigan",
     "in a place with both heavy rain and bright sun",
     "by an abandoned lake",
     "in a deserted church",
@@ -57,9 +57,9 @@ let lightingList = [
 let inhabitantsList = [
     "friends and enemies",
     "fisherman and families",
-    "vegitarians",
+    "vegetarians",
     "children and old people",
-    "french and german speaking people",
+    "French and German speaking people",
     "people who sleep almost all the time",
     "various birds and fish",
     "lovers",
@@ -74,6 +74,7 @@ let inhabitantsList = [
     "friends",
     "very tall people"
 ]
+
 
 let count = 1;
 
@@ -154,8 +155,8 @@ function display(lineArray, i) {
             display(lineArray, i+1);
         }else{
              twitterZone.classList.remove("hidden");
-//            count++;
-//            build(count);
+            count++;
+            build(count);
         }  
     }
     func();  

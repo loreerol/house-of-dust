@@ -35,7 +35,7 @@ main{
 */
 }
 header{
-    height: 10vh;
+    height: auto;
     margin-bottom: 2vh;
     overflow:visible;
     opacity: 100%;
@@ -110,6 +110,7 @@ div aside{
     width: auto;
     display: flex;
     justify-content: center;
+    min-width: 20px;
 }
 
 .hidden{
