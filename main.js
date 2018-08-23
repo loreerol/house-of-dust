@@ -43,7 +43,7 @@ let locationList = [
     "in a metropolis",
     "underwater",
     "in dense woods",
-    "deserted factory",
+    "in a deserted factory",
     "by a river"
 ]
 
@@ -77,10 +77,27 @@ let inhabitantsList = [
 
 let count = 1;
 
+//I need to generate the areas for my content to live in
 function build(peram){
-//create a div with a unique id
-    var div = document.createElement('div');
-    div.setAttribute("id", `${peram}`);
+//create a parent div for flexbox 
+    var parentDiv = document.createElement('div');
+    parentDiv.setAttribute("id", "parent");
+//create a div for the poem to live in
+    var poemDiv = document.createElement('div');
+    poemDiv.setAttribute("id", `${peram}`);
+    
+//create an aside for the twitter icon to live in
+    var twitter = document.createElement('aside');
+    twitter.setAttribute("id", `t${peram}`);
+    twitter.setAttribute("class", "hidden");
+//add print icon
+    var print = document.createElement('i');
+    print.setAttribute("class", "fa fa-print");
+    twitter.appendChild(print);
+    
+//apend the two child elements to parent div
+    parentDiv.appendChild(poemDiv);
+    parentDiv.appendChild(twitter);
 //create 4 paragraphs inside the div with unique ids
     let i = 0;
     let pId = 0;
@@ -88,13 +105,14 @@ function build(peram){
     for(i = 0; i < 4; i++) { 
     var paragraph = document.createElement("p");
     paragraph.setAttribute("id", `${peram}${i}`);
-    div.appendChild(paragraph);
+    poemDiv.appendChild(paragraph);
 }
 //create an aside for the twitter button to live in
 
     let poemElement = document.getElementById("poem");
-    poemElement.insertBefore(div, poemElement.childNodes[0]);
+    poemElement.insertBefore(parentDiv, poemElement.childNodes[0]);
     let newParagraph = document.getElementById(pId);
+    
     generate();
     
 }
@@ -115,6 +133,8 @@ function generate(){
 function display2(lineArray, i) {
     let poemLines = lineArray[i];
     let l = 0;
+    let twitterZone = document.getElementById(`t${count}`);
+    
     function func(){
         if( l < poemLines.length) {
             let txt = poemLines[l];
@@ -125,8 +145,11 @@ function display2(lineArray, i) {
         else if (i < 3) {
             display2(lineArray, i+1);
         }else{
-            count++;
-            build(count);
+             twitterZone.classList.remove("hidden");
+            console.log(twitterZone);
+//            count++;
+//            build(count);
+            
         }  
     }
     func();  
@@ -147,4 +170,3 @@ function display(poemLines, i){
 }
 
 build(count);
-

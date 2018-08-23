@@ -10,11 +10,11 @@ body{
 }
 
 main{
-    background-color: #ede2d0;
+    background-color: #e4edd0;
     margin: 10vh;
     width: 60vw;
     border-radius: 50px;
-    border: 5px solid #b55c34;
+    border: 5px solid #bf3b00;
     overflow: hidden;
     text-align: center;
 /*
@@ -27,11 +27,15 @@ main{
 header{
     height: 10vh;
     margin-bottom: 2vh;
+    overflow:visible;
+    opacity: 100%;
+    
 }
 
 article{
     height: 50vh;
     display: flex;
+    overflow: hidden;
 }
 
 footer{
@@ -48,7 +52,7 @@ h1{
 }
 
 h1, h2, a{
-    color: #d05017;
+    color: #de4400;
     font-family: 'Cutive Mono', monospace;
 }
 
@@ -73,8 +77,13 @@ h2{
     font-family: 'VT323', monospace;
 }
 
+#parent{
+    display: flex;
+    justify-content: space-between;
+}
+
 #poem div p{
-    height: 20px;
+    height: auto;
     margin: 0px 1vw;
 }
 #poem div p:nth-child(2){
@@ -85,4 +94,40 @@ h2{
 }
 #poem div p:nth-child(4){
    margin: 0px 1vw 0px 8vw;   
+}
+
+div aside{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.hidden{
+    display: none;
+}
+
+
+i{
+    align-self: center;
+    margin: 20px;
+    color: #de4400;
+}
+
+
+
+
+@media only screen and (max-width : 720px){
+    main{
+        margin: 2vw;
+        width: 90vw;
+        
+    }
+    body{
+        height: 100vh;
+        align-items: center
+    }
+    footer{
+        height: 3vh;
+    }
+    
 }
