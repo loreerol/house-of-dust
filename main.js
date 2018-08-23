@@ -77,6 +77,7 @@ let inhabitantsList = [
 
 let count = 1;
 
+
 //I need to generate the areas for my content to live in
 function build(peram){
 //create a parent div for flexbox 
@@ -90,10 +91,17 @@ function build(peram){
     var twitter = document.createElement('aside');
     twitter.setAttribute("id", `t${peram}`);
     twitter.setAttribute("class", "hidden");
-//add print icon
+//add  button
+    var printBtn = document.createElement('button');
+    printBtn.setAttribute("onclick", `twitClick(${peram})`);
+    printBtn.setAttribute("id", `p${peram}`);
+    printBtn.setAttribute("class", "button");
+// add print icon
     var print = document.createElement('i');
     print.setAttribute("class", "fa fa-print");
-    twitter.appendChild(print);
+    
+    printBtn.appendChild(print);
+    twitter.appendChild(printBtn);
     
 //apend the two child elements to parent div
     parentDiv.appendChild(poemDiv);
@@ -126,11 +134,11 @@ function generate(){
     
     
     let LineArray = [lineOne, lineTwo, lineThree, lineFour];
-    display2(LineArray, 0);
+    display(LineArray, 0);
 
 }
 
-function display2(lineArray, i) {
+function display(lineArray, i) {
     let poemLines = lineArray[i];
     let l = 0;
     let twitterZone = document.getElementById(`t${count}`);
@@ -140,33 +148,23 @@ function display2(lineArray, i) {
             let txt = poemLines[l];
             document.getElementById(`${count}${i}`).innerHTML += txt;
             l++;
-            setTimeout(func, 70);
+            setTimeout(func, 200);
         }
         else if (i < 3) {
-            display2(lineArray, i+1);
+            display(lineArray, i+1);
         }else{
              twitterZone.classList.remove("hidden");
-            console.log(twitterZone);
-//            count++;
-//            build(count);
-            
+            count++;
+            build(count);
         }  
     }
     func();  
 }
 
-function display(poemLines, i){
-    console.log(`display is called with poemLines: ${poemLines}`);
-    let l = 0;
-    function func(){
-        if( l < poemLines.length) {
-            let txt = poemLines[l];
-            document.getElementById(`${count}${i}`).innerHTML += txt;
-            l++;
-            setTimeout(func, 70);
-        }        
-    }
-    func();
+function twitClick(e){
+    console.log(e);
 }
+
+
 
 build(count);
