@@ -67,7 +67,7 @@ let inhabitantsList = [
     "people who speak many languages and wear little or no clothing",
     "people who love to read",
     "little boys",
-    "people who enjoy eatting together",
+    "people who enjoy eating together",
     "people who eat a great deal",
     "people who sleep very little",
     "collectors of all types",
@@ -127,10 +127,10 @@ function build(peram){
 
 function generate(){
     //build the poem from randomly selected options
-    let lineOne = `A house of ${materialList[Math.floor(Math.random()*materialList.length)]}`;
-    let lineTwo = `${locationList[Math.floor(Math.random()*locationList.length)]}`;
-    let lineThree = `${lightingList[Math.floor(Math.random()*lightingList.length)]}`;
-    let lineFour = `inhabitated by ${inhabitantsList[Math.floor(Math.random()*inhabitantsList.length)]}`;
+    let lineOne = `A house of ${materialList[Math.floor(Math.random()*materialList.length)]} `;
+    let lineTwo = `${locationList[Math.floor(Math.random()*locationList.length)]} `;
+    let lineThree = `${lightingList[Math.floor(Math.random()*lightingList.length)]} `;
+    let lineFour = `inhabited by ${inhabitantsList[Math.floor(Math.random()*inhabitantsList.length)]} `;
     
     
     let LineArray = [lineOne, lineTwo, lineThree, lineFour];
@@ -148,21 +148,27 @@ function display(lineArray, i) {
             let txt = poemLines[l];
             document.getElementById(`${count}${i}`).innerHTML += txt;
             l++;
-            setTimeout(func, 200);
+            setTimeout(func, 70);
         }
         else if (i < 3) {
             display(lineArray, i+1);
         }else{
              twitterZone.classList.remove("hidden");
-            count++;
-            build(count);
+//            count++;
+//            build(count);
         }  
     }
     func();  
 }
 
-function twitClick(e){
-    console.log(e);
+function twitClick(peram){
+    var text = document.getElementById(peram).textContent;
+    console.log(text);
+    
+    let twitterWindow = window.open(`https://twitter.com/intent/tweet?text=${text} ` + document.URL, 'twitter-popup', 'height=350,width=600');
+  if(twitterWindow.focus) { twitterWindow.focus(); }
+    return false;
+    
 }
 
 
